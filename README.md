@@ -1,1 +1,1 @@
-# Getting Started with P5-starter
+# Getting Started with p5-react-template
