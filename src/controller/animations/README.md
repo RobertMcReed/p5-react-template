@@ -1,5 +1,5 @@
 ## How to use
 
-Create a copy of `./src/controller/templates/CanvasTemplate.ts` in this directory by running `yarn create-animation` from the project root.
+Create a copy of `./src/controller/templates/CanvasTemplate.ts` in this directory by running `yarn create-animation` from the project root. Change the file name to something unique and use PascalCase.
 
-Edit the new file to suit your needs and then `export { hotCanvas, Canvas } from './yourFile` the hot canvas in `./index.ts`.
+Run `yarn update-animations`. This will update `./src/controller/index.ts` to include your new animation. You will see it in the list of animations on the landing page.
