@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "add-remote": "git remote add template https://github.com/RobertMcReed/p5-react-template.git",
-    "merge-remote": "git fetch template && git merge template/main --allow-unrelated-histories",
+    "update-template": "git fetch template && git merge template/main --allow-unrelated-histories",
     "create-animation": "cp ./src/controller/templates/CanvasTemplate.ts ./src/controller/animations/MyAnimation.ts",
     "update-animations": "./src/scripts/update-animations.js"
   },

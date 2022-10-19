@@ -13,4 +13,4 @@
 If there are changes to the template that you wish to pull in you can do so as follows:
 
 1. Run `yarn add-remote` to add the template remote to git (only needs to be run once)
-2. Run `yarn merge-remote` to pull in all updates from the remote. This will likely require you to fix merge conflicts.
+2. Run `yarn update-template` to pull in all updates from the remote. This will likely require you to fix merge conflicts.
