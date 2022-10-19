@@ -21,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "add-remote": "git remote add template https://github.com/RobertMcReed/p5-react-template.git",
+    "merge-remote": "git fetch template && git merge template/main --allow-unrelated-histories"
   },
   "eslintConfig": {
     "extends": [
