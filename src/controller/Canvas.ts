@@ -1,42 +1,34 @@
 import p5Types from "p5";
+import { CanvasBase, ICanvasBase, ICanvasBaseArgs } from "./CanvasBase";
 
-export interface ICanvas {
-  width: number;
-  height: number;
-  setup: (p5: p5Types, canvasParentRef: Element) => void;
-  draw: (p5: p5Types) => void;
-}
+// if you need any public properties add them here
+export interface ICanvas extends ICanvasBase {}
 
-export class Canvas implements ICanvas {
-  width: number;
-  height: number;
-  key: number;
+// add any additional args here
+export interface ICanvasArgs extends ICanvasBaseArgs {}
 
-  constructor(width: number | undefined, height: number | undefined) {
-    this.width = width || 500;
-    this.height = height || 500;
-    // using a random key will ensure that the canvas is reset when hot reloading
-    this.key = Math.random();
-  }
+export class Canvas extends CanvasBase implements ICanvas {
+  // is you need a constructor make sure to call super with the args
+  // if you don't add any extra args you can omit the constructor
+  // constructor(args: ICanvasArgs) {
+  //   super(args);
+  //   this.something = args.something;
+  // }
 
-  setup = (p5: p5Types, canvasParentRef: Element) => {
-    p5.createCanvas(this.width, this.height).parent(canvasParentRef);
-  };
+  // if you don't need to add canvas events you can omit this function entirely and it will be inherited
+  // if you do create a setup function you must call this.init(p5, canvasParentRef) in order to initialize the canvas
+  // setup = (p5: p5Types, canvasParentRef: Element) => {
+  //   const canvas: p5Types.Element = this.init(p5, canvasParentRef);
+  //   canvas.mouseMoved((event) => {
+  //     console.log(event);
+  //   });
+  // };
 
-  // example draw function should be changed
+  // remove the demo and create your own animation!
   draw = (p5: p5Types) => {
-    // p5.background(0);
-    p5.strokeWeight(10);
-    Array.from({ length: 2 }).forEach((_, idx, arr) => {
-      const multiplier = arr.length - idx - 1;
-      const x = this.width / 2;
-      const y = this.height / 2;
-      const width = Math.random() * 5 + 70 * multiplier;
-      const height = Math.random() * 5 + 70 * multiplier;
-      p5.ellipse(x, y, width, height * 2);
-    });
+    this.demo(p5);
   };
 }
 
 // use this canvas in order for changes to hot reload
-export const hotCanvas = new Canvas(500, 500);
+export const hotCanvas = new Canvas();
