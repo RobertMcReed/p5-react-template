@@ -10,10 +10,13 @@ export interface ICanvas {
 export class Canvas implements ICanvas {
   width: number;
   height: number;
+  key: number;
 
   constructor(width: number | undefined, height: number | undefined) {
     this.width = width || 500;
     this.height = height || 500;
+    // using a random key will ensure that the canvas is reset when hot reloading
+    this.key = Math.random();
   }
 
   setup = (p5: p5Types, canvasParentRef: Element) => {
@@ -22,15 +25,15 @@ export class Canvas implements ICanvas {
 
   // example draw function should be changed
   draw = (p5: p5Types) => {
-    p5.background(0);
+    // p5.background(0);
     p5.strokeWeight(10);
-    Array.from({ length: 15 }).forEach((_, idx, arr) => {
+    Array.from({ length: 2 }).forEach((_, idx, arr) => {
       const multiplier = arr.length - idx - 1;
       const x = this.width / 2;
       const y = this.height / 2;
       const width = Math.random() * 5 + 70 * multiplier;
       const height = Math.random() * 5 + 70 * multiplier;
-      p5.ellipse(x, y, width, height);
+      p5.ellipse(x, y, width, height * 2);
     });
   };
 }
