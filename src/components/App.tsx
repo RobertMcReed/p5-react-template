@@ -1,6 +1,6 @@
 import React from "react";
 import Canvas from "components/Canvas";
-import { hotCanvas } from "controller/animations";
+import { animations } from "controller";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         width: "100vw",
       }}
     >
-      <Canvas canvas={hotCanvas} />
+      <Canvas canvas={animations[0].hotCanvas} />
     </div>
   );
 }

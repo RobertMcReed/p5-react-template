@@ -1,14 +1,11 @@
 import p5Types from "p5";
 
-interface _ICanvasBase {
+export interface ICanvasBase {
   key: number;
   width: number;
   height: number;
   setup: (p5: p5Types, canvasParentRef: Element) => void;
-}
-
-export interface ICanvasBase extends _ICanvasBase {
-  draw: (p5: p5Types) => void;
+  draw: () => void;
 }
 
 export interface ICanvasBaseArgs {
@@ -17,7 +14,7 @@ export interface ICanvasBaseArgs {
   hotReloadCanvas?: boolean;
 }
 
-export class CanvasBase implements _ICanvasBase {
+export class CanvasBase implements ICanvasBase {
   key: number;
   width: number;
   height: number;
@@ -31,7 +28,7 @@ export class CanvasBase implements _ICanvasBase {
     this.height = args.height || 500;
   }
 
-  setup = (p5: p5Types, canvasParentRef: Element) => {
+  public setup = (p5: p5Types, canvasParentRef: Element) => {
     this.init(p5, canvasParentRef);
   };
 
@@ -42,6 +39,10 @@ export class CanvasBase implements _ICanvasBase {
       .parent(canvasParentRef);
 
     return canvas;
+  };
+
+  public draw = () => {
+    this.demo();
   };
 
   // an example drawing for inspiration

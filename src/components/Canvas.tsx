@@ -1,9 +1,9 @@
+import { CanvasBase } from "controller/private/CanvasBase";
 import React from "react";
 import Sketch from "react-p5";
-import { Canvas } from "controller/animations";
 
 interface CanvasProps {
-  canvas: Canvas;
+  canvas: CanvasBase;
 }
 
 const CanvasComponent: React.FC<CanvasProps> = ({ canvas }) => {
