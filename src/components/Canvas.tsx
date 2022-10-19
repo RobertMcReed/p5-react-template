@@ -1,6 +1,6 @@
 import React from "react";
 import Sketch from "react-p5";
-import { Canvas } from "controller/Canvas";
+import { Canvas } from "controller/animations";
 
 interface CanvasProps {
   canvas: Canvas;

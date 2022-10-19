@@ -1,6 +1,6 @@
 import React from "react";
 import Canvas from "components/Canvas";
-import { hotCanvas } from "controller/Canvas";
+import { hotCanvas } from "controller/animations";
 
 function App() {
   return (
